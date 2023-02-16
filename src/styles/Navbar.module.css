@@ -1,0 +1,28 @@
+.nav {
+    background-color: #6096BA;
+    color: #FFFFFF;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links {
+    float: right;
+    padding-right: 30px;
+}
+
+.links > * {
+    margin-left: 60px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.logo{
+    float: left;
+    padding-left: 25px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
