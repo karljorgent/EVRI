@@ -7,7 +7,7 @@ function Page({ teavikud_info }) {
           <ul>
             <li key={teavik.teavik_id}>{teavik.pealkiri}</li>
             <li key={teavik.teavik_id}>{teavik.autor_nimi}</li>
-            <img src={`https://miczyahlbkmhvxdbmhhm.supabase.co/storage/v1/object/public/images/${teavik.pilt}`} />
+            <img src={teavik.pilt} />
             <li key={teavik.teavik_id}>{teavik.kirjeldus}</li>
             <li key={teavik.teavik_id}>{teavik.keel}</li>
             <li key={teavik.teavik_id}>{teavik.ilmumisaasta}</li>
