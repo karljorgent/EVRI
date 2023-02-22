@@ -9,7 +9,7 @@ function Upload() {
     const [keel, setKeel] = useState('')
     const [ilmumisaasta, setIlmumisaasta] = useState('')
     const [kirjeldus, setKirjeldus] = useState('')
-    const [kirjastus, setKirjastus] = useState('')
+    const [kirjastaja, setKirjastaja] = useState('')
 
 
     function handleFileInput (e) {
@@ -23,20 +23,49 @@ function Upload() {
         e.preventDefault()
 
         try{
-            const { autorError } = await supabase.from('autor').insert({ nimi: autor })
-            console.log({ autorData, autorError })
 
-            //const { kirjastusData, kirjastusError} = await supabase.from('kirjastus').insert({ nimi: kirjastus}).select()
-            //console.log({ autorData, autorError })
+            let { data: autorData, autorError } = await supabase.from('autor').select('*').eq('nimi', autor)
+            let { data: kirjastajaData, kirjastajaError} = await supabase.from('kirjastaja').select('*').eq('nimi', kirjastaja)
 
 
-//            const { imageData, imageError } = await supabase.storage
-  //              .from('images')
-    //            .upload('/barry.jpg', selectedFile, {
-      //              contentType: "image/jpeg",
-        //        }) 
+            if(autorData.length < 1){
+              const { autorWriteError } = await supabase.from('autor').insert({ nimi: autor}).select('*')
+              if(autorWriteError){
+                alert(autorWriteError)
+              }
+            }
+
+
+            if(kirjastajaData.length < 1){
+              const { kirjastajaWriteError } = await supabase.from('kirjastaja').insert({ nimi: kirjastaja}).select('*')
+              if(kirjastajaWriteError){
+                alert(kirjastajaWriteError)
+              }
+            } 
+
+
+
+            let imageId = pealkiri + '_' + ilmumisaasta + '_' + Math.random() * 10000000000000000000
+
+            let { imageData, imageError } = await supabase.storage
+              .from('images')
+              .upload(`/${imageId}.jpg`, selectedFile, {
+                  contentType: "image/jpeg",
+           })
+            if(imageError){
+              alert(imageError)
+            } 
+
+            let imageURL = supabase.storage.from('images').getPublicUrl(`${imageId}`).data.publicUrl
+
+            const { data: teavikData, teavikWriteError } = await supabase.from('teavik').insert({pealkiri: pealkiri, pilt: imageURL + ".jpg", kirjeldus: kirjeldus, keel: keel, ilmumisaasta: ilmumisaasta, kirjastaja: kirjastajaData[0].kirjastaja_id}).select('*')
+
+            const { data: teaviku_autor } = await supabase.from('teaviku_autor').insert({autor_id: autorData[0].autor_id, teavik_id: teavikData[0].teavik_id}).select('*')
+            console.log(teaviku_autor)
+
+
         }catch(err){
-            alert(error)
+            console.log(err)
         }
         
     }
@@ -53,8 +82,8 @@ function Upload() {
         <input type='text' name='ilmumisaasta' onChange={e => (setIlmumisaasta(e.target.value)) }/>
         <label for kirjeldus> Kirjeldus </label>
         <input type='textarea' name='kirjeldus' onChange={e => (setKirjeldus(e.target.value))} />
-        <label for kirjastus> Kirjastus </label>
-        <input type='text' name='kirjastus' onChange={e => (setKirjastus(e.target.value))} />
+        <label for kirjastaja> kirjastaja </label>
+        <input type='text' name='kirjastaja' onChange={e => (setKirjastaja(e.target.value))} />
         <input type='file' name='file' onChange={handleFileInput} />
         <button type="submit">SUBMIT</button>
     </form>
