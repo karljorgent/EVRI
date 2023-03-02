@@ -5,13 +5,13 @@ function Page({ teavikud_info }) {
     <ul>
       {teavikud_info.map((teavik) => (
           <ul>
-            <li key={teavik.teavik_id}>{teavik.pealkiri}</li>
-            <li key={teavik.teavik_id}>{teavik.autor_nimi}</li>
+            <li key={teavik.pealkiri}>{teavik.pealkiri}</li>
+            <li key={teavik.autor_nimi}>{teavik.autor_nimi}</li>
             <img src={teavik.pilt} />
-            <li key={teavik.teavik_id}>{teavik.kirjeldus}</li>
-            <li key={teavik.teavik_id}>{teavik.keel}</li>
-            <li key={teavik.teavik_id}>{teavik.ilmumisaasta}</li>
-            <li key={teavik.teavik_id}>{teavik.kirjastus_nimi}</li>
+            <li key={teavik.kirjeldus}>{teavik.kirjeldus}</li>
+            <li key={teavik.keel}>{teavik.keel}</li>
+            <li key={teavik.ilmumisaasta}>{teavik.ilmumisaasta}</li>
+            <li key={teavik.kirjastus_nimi}>{teavik.kirjastus_nimi}</li>
           </ul>
       ))}
     </ul>

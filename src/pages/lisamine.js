@@ -82,7 +82,7 @@ function Upload() {
         <input type='text' name='ilmumisaasta' onChange={e => (setIlmumisaasta(e.target.value)) }/>
         <label for kirjeldus> Kirjeldus </label>
         <input type='textarea' name='kirjeldus' onChange={e => (setKirjeldus(e.target.value))} />
-        <label for kirjastaja> kirjastaja </label>
+        <label for kirjastaja> Kirjastaja </label>
         <input type='text' name='kirjastaja' onChange={e => (setKirjastaja(e.target.value))} />
         <input type='file' name='file' onChange={handleFileInput} />
         <button type="submit">SUBMIT</button>
