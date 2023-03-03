@@ -12,6 +12,7 @@ function Page({ teavikud_info }) {
             <li key={teavik.keel}>{teavik.keel}</li>
             <li key={teavik.ilmumisaasta}>{teavik.ilmumisaasta}</li>
             <li key={teavik.kirjastus_nimi}>{teavik.kirjastus_nimi}</li>
+            +
           </ul>
       ))}
     </ul>

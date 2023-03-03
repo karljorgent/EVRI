@@ -29,7 +29,7 @@ function Upload() {
 
 
             if(autorData.length < 1){
-              const { autorWriteError } = await supabase.from('autor').insert({ nimi: autor}).select('*')
+              const { error: autorWriteError } = await supabase.from('autor').insert({ nimi: autor}).select('*')
               if(autorWriteError){
                 alert(autorWriteError)
               }
@@ -37,7 +37,7 @@ function Upload() {
 
 
             if(kirjastajaData.length < 1){
-              const { kirjastajaWriteError } = await supabase.from('kirjastaja').insert({ nimi: kirjastaja}).select('*')
+              const { error: kirjastajaWriteError } = await supabase.from('kirjastaja').insert({ nimi: kirjastaja}).select('*')
               if(kirjastajaWriteError){
                 alert(kirjastajaWriteError)
               }
@@ -72,17 +72,17 @@ function Upload() {
 
   return (
     <form onSubmit={(event) => {insertBook(event)}}>
-        <label for pealkiri> Pealkiri </label>
+        <label htmlFor="pealkiri"> Pealkiri </label>
         <input type='text' name='pealkiri' onChange={e => (setPealkiri(e.target.value))} />
-        <label for autor> Autor </label>
+        <label htmlFor="autor"> Autor </label>
         <input type='text' name='autor' onChange={e => (setAutor(e.target.value)) } />
-        <label for keel> Keel </label>
+        <label htmlFor="keel"> Keel </label>
         <input type='text' name='Keel' onChange={e => (setKeel(e.target.value)) } />
-        <label for ilmumisaasta> Ilmumisaasta </label>
+        <label htmlFor="ilmumisaasta"> Ilmumisaasta </label>
         <input type='text' name='ilmumisaasta' onChange={e => (setIlmumisaasta(e.target.value)) }/>
-        <label for kirjeldus> Kirjeldus </label>
+        <label htmlFor="kirjeldus"> Kirjeldus </label>
         <input type='textarea' name='kirjeldus' onChange={e => (setKirjeldus(e.target.value))} />
-        <label for kirjastaja> Kirjastaja </label>
+        <label htmlFor="kirjastaja"> Kirjastaja </label>
         <input type='text' name='kirjastaja' onChange={e => (setKirjastaja(e.target.value))} />
         <input type='file' name='file' onChange={handleFileInput} />
         <button type="submit">SUBMIT</button>
