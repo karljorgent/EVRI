@@ -50,14 +50,18 @@ function Login() {
             </>
         )
     }else{
-        return( 
-            <form onSubmit={(event) => {signIn(event)}}>
-                <label htmlFor="email"> Email </label>
-                <input type='email' name='email' onChange={e => (setEmail(e.target.value))} />
-                <label htmlFor="parool"> Parool </label>
-                <input type='password' name='parool' onChange={e => (setParool(e.target.value)) }/>
-                <button type="submit">LOGI SISSE</button>
-            </form>
+        return(
+            <>
+                <form onSubmit={(event) => {signIn(event)}}>
+                    <label htmlFor="email"> Email </label>
+                    <input type='email' name='email' onChange={e => (setEmail(e.target.value))} />
+                    <label htmlFor="parool"> Parool </label>
+                    <input type='password' name='parool' onChange={e => (setParool(e.target.value)) }/>
+                    <button type="submit">LOGI SISSE</button>
+                </form>
+                <h3><a href='/signup'>Või loo konto</a></h3>
+            </> 
+            
         )
         
     }  

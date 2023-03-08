@@ -15,7 +15,7 @@ const Navbar = () => {
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <nav className={styles.nav}>
                 <div className={styles.links}>
-                    <a className={styles.button} onClick={console.log('aeawlkjeakljealkje')}>AUTENDI</a>
+                    <a className={styles.button} href="/login" onClick={console.log('aeawlkjeakljealkje')}>AUTENDI</a>
                     <a className={styles.button} onClick={console.log(toggle)}><Image src={Hamburger} alt="Menu"/></a>
                 </div>
             </nav>

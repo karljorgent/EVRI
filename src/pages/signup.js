@@ -61,19 +61,23 @@ function Login() {
     }else{
 
     return (
-        <form onSubmit={(event) => {signUp(event)}}>
-            <label htmlFor="email"> Email </label>
-            <input type='email' name='email' onChange={e => (setEmail(e.target.value))} />
-            <label htmlFor="eesnimi"> Eesnimi</label>
-            <input type='text' name='eesnimi' onChange={e => (setEesnimi(e.target.value)) } />
-            <label htmlFor="perenimi"> Perenimi </label>
-            <input type='text' name='perenimi' onChange={e => (setPerenimi(e.target.value)) } />
-            <label htmlFor="isikukood"> Isikukood </label>
-            <input type='text' name='isikukood' onChange={e => (setIsikukood(e.target.value)) }/>
-            <label htmlFor="parool"> Parool </label>
-            <input type='password' name='parool' onChange={e => (setParool(e.target.value)) }/>
-            <button type="submit">LOO KONTO</button>
-        </form>
+        <>
+            <form onSubmit={(event) => {signUp(event)}}>
+                <label htmlFor="email"> Email </label>
+                <input type='email' name='email' onChange={e => (setEmail(e.target.value))} />
+                <label htmlFor="eesnimi"> Eesnimi</label>
+                <input type='text' name='eesnimi' onChange={e => (setEesnimi(e.target.value)) } />
+                <label htmlFor="perenimi"> Perenimi </label>
+                <input type='text' name='perenimi' onChange={e => (setPerenimi(e.target.value)) } />
+                <label htmlFor="isikukood"> Isikukood </label>
+                <input type='text' name='isikukood' onChange={e => (setIsikukood(e.target.value)) }/>
+                <label htmlFor="parool"> Parool </label>
+                <input type='password' name='parool' onChange={e => (setParool(e.target.value)) }/>
+                <button type="submit">LOO KONTO</button>
+            </form>
+            <h3><a href='login'>Või logi sisse</a></h3>
+        </>
+        
     )}
 }
     
