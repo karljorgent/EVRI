@@ -1,26 +1,30 @@
 .nav {
-    background-color: #6096BA;
-    color: #FFFFFF;
-    height: 72px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.links {
-    float: right;
-    padding-right: 30px;
+  background-color: var(--medium);
+  color: #ffffff;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .links > * {
-    margin-left: 60px;
-    font-weight: 600;
-    font-size: 20px;
+  margin-left: 60px;
+  font-weight: 600;
+  font-size: 20px;
 }
 
-.logo{
-    float: left;
-    padding-left: 25px;
+.logo {
+  width: auto;
+  height: 62px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 33px;
+  height: 23px;
 }
 
 .button:hover {

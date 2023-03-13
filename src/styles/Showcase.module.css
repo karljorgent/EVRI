@@ -1,0 +1,13 @@
+.carousel {
+  width: 90%;
+  max-height: 30vh;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+}
+.book_img img {
+  height: 20vh;
+  width: auto;
+  margin: 20px;
+  border: 0px solid #fff;
+}
