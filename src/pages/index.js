@@ -64,7 +64,7 @@ const Home = ({ teavikud_info }) => {
           <div className={styles.carousel}>
             {teavikud_info.map((teavik) => (
               <div className={styles.book}>
-                <img className={styles.book_img} src={teavik.pilt} />
+                <a href={`/teavik/${teavik.teavik_id}`}><img className={styles.book_img} src={teavik.pilt} /></a>
                 <p class="" key={teavik.teavik_id}>
                   {teavik.pealkiri}
                 </p>
