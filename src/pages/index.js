@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 0
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/navbar";
 import SearchBar from "@/components/SearchBar";
 import Showcase from "@/components/Showcase";
 
@@ -89,5 +89,3 @@ export async function getServerSideProps() {
 }
 
 export default Home;
-
-export default Page;
