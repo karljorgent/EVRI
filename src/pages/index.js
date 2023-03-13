@@ -7,7 +7,7 @@ function Page({ teavikud_info }) {
           <ul>
             <li key={teavik.pealkiri}>{teavik.pealkiri}</li>
             <li key={teavik.autor_nimi}>{teavik.autor_nimi}</li>
-            <img src={teavik.pilt} />
+            <a href={`teavik/${teavik.teavik_id}`}><img src={teavik.pilt} /></a>
             <li key={teavik.kirjeldus}>{teavik.kirjeldus}</li>
             <li key={teavik.keel}>{teavik.keel}</li>
             <li key={teavik.ilmumisaasta}>{teavik.ilmumisaasta}</li>

@@ -1,7 +1,6 @@
-import { useRouter } from "next/router";
 import { supabase } from "@/supabaseClient";
 
-const Teavik = ({teavik}) => {
+const Teavik = ({ teavik }) => {
     
     return (
 
@@ -18,13 +17,12 @@ const Teavik = ({teavik}) => {
     )
 }
 
-export async function getServerSideProps() {
-    const router = useRouter()
-    const { id } = router.query
+export async function getServerSideProps(context) {
+    const { id } = context.query
     let { data } = await supabase.from('teavik_info').select().eq('teavik_id', id)
     return {
       props: {
-       teavik: data
+       teavik: data[0]
       },
     }
   }
